@@ -2,14 +2,13 @@
 using System.Collections;
 
 public class CityController : MonoBehaviour {
-
-
+	
 	//Private Variable
 	private Transform _transform;
 	private Vector2 _currentPosition;
 
 	//public variables
-	public float speed = 1f;
+	public float speed = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -18,11 +17,11 @@ public class CityController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		this._currentPosition = this._transform.position;
 		this._currentPosition -= new Vector2 (speed, 0);
 		this._transform.position = this._currentPosition;
-		Debug.Log ("position" + this._currentPosition.x);
+		//Debug.Log ("position" + this._currentPosition.x);
 
 		if (this._currentPosition.x <= -598) {
 			Reset ();
@@ -30,7 +29,7 @@ public class CityController : MonoBehaviour {
 	}
 
 	void Reset() {
-		this._transform.position = new Vector2 (600f, 0);
+		this._transform.position = new Vector2 (598f, 0);
 	}
-		
+
 }
